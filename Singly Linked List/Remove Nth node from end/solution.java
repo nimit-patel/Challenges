@@ -8,14 +8,15 @@ class Solution {
             current = current.next;
         }
         
-        if(current != null){
-            prevToTarget = head;
-            while(current.next != null){ // sliding node that comes before the actual target as we traverse
-                current = current.next;
-                prevToTarget = prevToTarget.next;
-            }
-        }else{                          
-             return head.next;          // head is the actual target node that needs to be delete     
+        if(current == null){
+            return head.next;           // head is the actual target node that needs to be delete
+        }
+        
+        prevToTarget = head;
+        
+        while(current.next != null){    // sliding node that comes before the actual target as we traverse
+            current = current.next;
+            prevToTarget = prevToTarget.next;
         }
         
         prevToTarget.next = prevToTarget.next.next;
