@@ -14,26 +14,18 @@ class Solution {
         ListNode previous = new ListNode(0); // dummy, trick to avoid code repetition
         ListNode temp = null;
         ListNode current = head;
-        head = head.next; // important to store the next as it will be head eventually
-        
-        /*
-        temp = current.next; 
-        current.next = temp.next; // 1,2,3 1 points directly to 3 and 2 gets stored in temporary
-        temp.next = current;            // 2 now gets directly connected to 1
-        previous = current;         // previous node is 2
-        current = current.next;         // current is at 3 now
-        */
+        head = head.next;                   // important to store the next as it will be head eventually
         
         while(current != null && current.next != null){        // 1,2,3,4
             
-            temp = current.next;            // stores 4 and on
-            current.next = temp.next;       // 3 points to somethig after 4
-            temp.next = current;            // 4 now points to 3
+            temp = current.next;            // stores the next node
+            current.next = temp.next;       // current now points to node after the next node
+            temp.next = current;            // the next node in original list node points to its head/previous node
             
-            previous.next = temp;           // finally 2 connects to 4
+            previous.next = temp;           
             
-            previous = current;             // now previous is 3, after swap current is previous node
-            current = current.next;         // something after 3 can be null
+            previous = current;             // after swap current is previous node
+            current = current.next;         // something after this can be null hence the condition
             
         }
         
