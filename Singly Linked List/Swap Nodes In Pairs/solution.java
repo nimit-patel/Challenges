@@ -16,7 +16,7 @@ class Solution {
         ListNode current = head;
         head = head.next;                   // important to store the next as it will be head eventually
         
-        while(current != null && current.next != null){        // 1,2,3,4
+        while(current != null && current.next != null){        
             
             temp = current.next;            // stores the next node
             current.next = temp.next;       // current now points to node after the next node
