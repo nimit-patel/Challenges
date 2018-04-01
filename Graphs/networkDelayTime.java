@@ -1,4 +1,9 @@
 class Solution {
+    /* 
+     Problem: find the delay time for a signal to reach all nodes from an origin node in a directed graph.
+     Used Dijkstra's algorithm to find shortest path to each node from the origin node and then find the maximum time
+     among all nodes to find the delay time in receving signal.
+    */
     public int networkDelayTime(int[][] times, int N, int K) {
         
         // adjacency matrix initialization for a directed graph
@@ -32,10 +37,10 @@ class Solution {
                 
                 for(int v = 0; v < N; ++v){
                     /*
-                        Update node time if one of the following holds
-                        1) adj[u][v] >= 0  there must be a connection between  u and v
-                        2) u != v          avoid cycle to itself
-                        3) v != K          avoid cycle back to origin node
+                     Update node time if one of the following holds
+                     1) adj[u][v] >= 0  there must be a connection between  u and v
+                     2) u != v          avoid cycle to itself
+                     3) v != K          avoid cycle back to origin node
                     */
                     
                     if(adj[u][v] >= 0 && u != v && v != K ){
